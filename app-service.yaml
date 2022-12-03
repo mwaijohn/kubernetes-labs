@@ -7,12 +7,12 @@ metadata:
   labels:
     app: lab1-service
 spec:
-  type: LoadBalancer
+  type: NodePort #NodePort, LoadBalancer
   ports:
   - name: http
     port: 80
     protocol: TCP
-    targetPort: 8000
+    targetPort: 8000 
   selector:
     app: lab1
   sessionAffinity: None

@@ -4,7 +4,7 @@ FROM nginx:alpine
 WORKDIR /usr/share/nginx/html
 # Remove default nginx static assets
 RUN rm -rf ./*
-# Copy static assets from builder stage
+# Copy static assets
 COPY . .
 
 # build environment
@@ -15,8 +15,6 @@ EXPOSE 80
 # Containers run nginx with global directives and daemon off
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 
-
-# https://mherman.org/blog/dockerizing-a-react-app/
 
 # docker run -d -p 8000:80 mwaijohng/static:1.
 # docker build -t mwaijohng/static:1.0 .
