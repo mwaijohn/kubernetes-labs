@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lab1-service
+  # annotations:
+  #   service.beta.kubernetes.io/linode-loadbalancer-throttle: "4"
+  labels:
+    app: lab1-service
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: lab1
+  sessionAffinity: None
